@@ -1,0 +1,15 @@
+<template name="competitor">
+    <view wx:if="{{items}}" class="bigContent bgd" style="transform:translateY(-{{animates.bigContenttp}});">
+        <image class="vs" src="../assets/img/selfVs.png"></image>
+        <view class="opponentGrades">
+            <image src="{{warInfo.opponent.headerImage}}"></image>
+            <text>{{warInfo.opponent.nickname}}</text>
+            <text>胜率：{{warInfo.selfInfo.success}}</text>
+        </view>
+        <view class="particulars">
+            <image src="{{warInfo.selfInfo.avatarUrl}}"></image>
+            <text>{{warInfo.selfInfo.nickName}}</text>
+            <text>胜率：{{warInfo.selfInfo.success}}</text>
+        </view>
+    </view>
+</template>

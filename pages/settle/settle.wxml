@@ -1,0 +1,48 @@
+<view class="settle bgd">
+    <view class="head_status">
+        <image class="ass" mode="widthFix" wx:if="{{false}}" src="../assets/img/success.png"></image>
+        <image class="ass" mode="widthFix" wx:else src="../assets/img/fail.png"></image>
+    </view>
+    <view class="bothInfo">
+        <view class="info">
+            <image mode="widthFix" src="{{calculate.selfInfo.avatarUrl}}"></image>
+            <view class="textInfo">
+                <text>答对：{{calculate.selfInfo.selfRightLength}}题</text>
+                <text>总分：{{calculate.selfInfo.selfGrade}}</text>
+            </view>
+        </view>
+        <view class="info">
+            <image mode="widthFix" src="{{calculate.opponent.headerImage}}"></image>
+            <view class="textInfo">
+                <text>答对：{{"undefind"}}题</text>
+                <text>总分：{{calculate.opponent.oppGrade || 0}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="btns">
+        <button class="shareFriend" bindtap="shareFriend">分享好友</button>
+        <button class="aginChallage" bindtap="aginChallage">再次挑战</button>
+    </view>
+    <view class="challagheDetail">
+        <view class="challageTitle">
+            <text>挑战详情</text>
+        </view>
+        <view class="ChakkageGrade">
+            <view class="table">
+                <view>用户</view>
+                <view>金币</view>
+                <view>得分</view>
+            </view>
+            <view class="self">
+                <image style="width:60rpx;border-radius:50%;" mode="widthFix" src="{{calculate.selfInfo.avatarUrl}}"></image>
+                <view>{{5 * calculate.selfInfo.selfRightLength || 0}}</view>
+                <view>{{calculate.selfInfo.selfGrade || 0}}</view>
+            </view>
+            <view class="others">
+                <image style="width:60rpx;border-radius:50%;" mode="widthFix" src="{{calculate.opponent.headerImage}}"></image>
+                <view>{{5 * calculate.selfInfo.selfRightLength || 0}}</view>
+                <view>{{calculate.opponent.oppGrade || 0}}</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container bgd">
+	<image class="logo" mode="widthFix" src="../assets/img/logo.png"></image>
+	<view class="attention">
+		<text class="official">关注</text>
+		<text class="official">微信公众号</text>
+		<image src="../assets/img/s_qr.jpg"></image>
+	</view>
+	<view class="header">
+		<view class="avatar">
+			<image src="{{userInfo.avatarUrl}}"></image>
+			<view class="u_code">
+				<text class="userName">{{userInfo.nickName}}</text>
+				<text class="gold">金币：<text>{{100000}}</text></text>
+			</view>
+		</view>
+		<view class="h_r">
+			<button>立即充值</button>
+			<!-- <button>每日签到</button> -->
+		</view>
+	</view>
+	<view class="signPlay">
+		<view class="veryday">每日签到</view>
+		<view class="introduce" bindtap="palyRule">玩法介绍</view>
+	</view>
+	<view class="startGame">
+		<image bindtap="startGame" src="../assets/img/timg.png"></image>
+		<button class="share" open-type="share">分享好友</button>
+	</view>
+</view>

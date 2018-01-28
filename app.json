@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/index/index",     
+    "pages/settle/settle",
+    "pages/fight/fight"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "最有头脑",
+    "navigationBarTextStyle":"black"
+  }
+}

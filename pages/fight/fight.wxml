@@ -1,0 +1,76 @@
+<view class="fight bgd">
+    <view class="findCom" wx:if="{{finded}}">
+        <view class="opponent line">
+            <view class="ani">
+                <view id="sun"></view>
+                <view class="orbit" id="earth-orbit">
+                    <view class="globe" id="earth">
+                        <view class="orbit" id="moon-orbit">
+                            <view class="globe" id="moon"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+        <view class="loadingFind">
+            <view>正在寻找对手....</view>
+            <view bindtap="cancel">取消匹配</view>
+        </view>
+        <view class="self">
+            <view class="selfImage">
+                <image src="{{warInfo.selfInfo.avatarUrl}}"></image>
+                <view class="textdetail">
+                    <text>{{warInfo.selfInfo.nickName}}</text>
+                    <text>胜率：{{warInfo.selfInfo.success}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="fight_person">
+
+        <image src="{{warInfo.opponent.headerImage}}"></image>
+        <view class="getGrade">
+            <text>得分</text>
+            <text>{{warInfo.opponent.oppGrade || 0}}</text>
+        </view>
+    </view>
+    <view class="fight_person opp">
+        <image src="{{warInfo.selfInfo.avatarUrl}}"></image>
+        <view class="getGrade">
+            <text>得分</text>
+            <text>{{warInfo.selfInfo.selfGrade || 0}}</text>
+        </view>
+    </view>
+    <!-- <view wx:if="{{items}}" class="bigContent bgd" style="top:-{{animates.bigContenttp}}rpx;">
+        <image class="vs" src="../assets/img/selfVs.png"></image>
+        <view class="opponentGrades">
+            <image src="{{warInfo.selfInfo.avatarUrl}}"></image>
+            <text>{{warInfo.selfInfo.nickName}}</text>
+            <text>胜率：{{warInfo.selfInfo.success}}</text>
+        </view>
+        <view class="particulars">
+            <image src="{{warInfo.selfInfo.avatarUrl}}"></image>
+            <text>{{warInfo.selfInfo.nickName}}</text>
+            <text>胜率：{{warInfo.selfInfo.success}}</text>
+        </view>
+    </view> -->
+    <import src="../template/competitor/competitor.wxml" />
+    <template is="competitor" data="{{warInfo,items,animates}}"></template>
+    <view class="question" wx:if="{{items}}">
+        <view class="timer">
+            <!-- <image src=""></image> -->
+            <text>{{timer}}</text>
+        </view>
+        <view class="quest-items" style="width:{{warInfo.questionsLength * 100}}%;left:-{{itemIndex * 100}}%">
+            <view class="pageQu" wx:for="{{items}}" wx:key="index" style="width:{{100/warInfo.questionsLength}}%;">
+                <view class="title">{{item.question}}</view>
+                <view wx:for="{{item.option}}" class="ans {{inx == select[index]['anwser']?'_green':''}} {{inx == select[index]['select']?'_red':''}}"
+                    data-inx="{{inx}}" data-anwser="{{item.anwser}}" bindtap="anwser" wx:for-index="inx" wx:for-item="pageItem"
+                    data-option="{{index}}" wx:key="key">
+                    {{inx}}：{{pageItem}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
